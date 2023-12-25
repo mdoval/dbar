@@ -1,15 +1,19 @@
-'use client'
+"use client";
 
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import React, { FC } from "react";
+import { BiSolidDrink } from "react-icons/bi";
 
-const NavBar: FC<any> = ({usuario}) => {
-//  const { data: session } = useSession()
-  
+const NavBar: FC<any> = ({ usuario }) => {
+  //  const { data: session } = useSession()
+
   return (
     <div className="navbar bg-base-100 border shadow-lg">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl" href="/dashboard">Next Base</a>
+        <a className="btn btn-ghost text-3xl" href="/dashboard">
+          dBar
+          <BiSolidDrink /> - <h1 className="text-blue-600">{usuario.empresa.nombre}</h1>
+        </a>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -52,10 +56,7 @@ const NavBar: FC<any> = ({usuario}) => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src={usuario.avatar}
-              />
+              <img alt="Tailwind CSS Navbar component" src={usuario.avatar} />
             </div>
           </div>
           <ul

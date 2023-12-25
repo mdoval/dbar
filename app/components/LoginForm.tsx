@@ -44,10 +44,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="w-1/4 border shadow p-5 m-10">
-      <div className="w-full font-bold text-2xl text-center">
-        Formulario de Login
-      </div>
+    <div className="w-full m-1">
       <div>
         <label className="form-control w-full max-w-xs">
           <div className="label">

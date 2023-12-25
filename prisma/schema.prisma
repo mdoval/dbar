@@ -16,6 +16,7 @@ model Empresa {
   updatedAt DateTime @updatedAt
   nombre String
   usuarios Usuario[]
+  puntos Punto[]
 }
 
 model Usuario {
@@ -29,3 +30,15 @@ model Usuario {
   empresaId Int
   avatar String @default("http://localhost:3000/images/dark-noimagen.jpg")
 }
+
+// Punto de Venta
+model Punto {
+  id      Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
+  descripcion String
+  empresa Empresa @relation(fields: [empresaId], references: [id])
+  empresaId Int
+  estado Boolean
+}
+
