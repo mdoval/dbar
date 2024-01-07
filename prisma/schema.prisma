@@ -17,6 +17,7 @@ model Empresa {
   nombre String
   usuarios Usuario[]
   puntos Punto[]
+  productos Producto[]
 }
 
 model Usuario {
@@ -42,3 +43,13 @@ model Punto {
   estado Boolean
 }
 
+model Producto {
+  id      Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
+  descripcion String
+  empresa Empresa @relation(fields: [empresaId], references: [id])
+  empresaId Int
+  precio Decimal
+  disponible Boolean
+}

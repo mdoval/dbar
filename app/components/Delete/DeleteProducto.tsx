@@ -2,15 +2,15 @@
 
 import React, { FC, useState } from "react";
 import Modal from "@/app/components/Modal";
-import { deletePunto } from "@/utils/deletePunto";
+import { deleteProducto } from "@/utils/deleteProducto";
 import { useRouter } from "next/navigation";
-import { Punto } from "@prisma/client";
+import { Producto } from "@prisma/client";
 
 interface Props {
-    punto: Punto
+    producto: Producto
 }
 
-const DeletePunto: FC<Props> = ({punto}) => {
+const DeleteProducto: FC<Props> = ({producto}) => {
   const router = useRouter()
   const [hidden, setHidden] = useState(true);
   
@@ -19,7 +19,7 @@ const DeletePunto: FC<Props> = ({punto}) => {
   };
 
   const handleDelete = async () => {
-    await deletePunto(punto.id)
+    await deleteProducto(producto.id)
     setHidden(true)
     router.refresh()
   }
@@ -29,9 +29,9 @@ const DeletePunto: FC<Props> = ({punto}) => {
       <button className="btn btn-primary" onClick={handleOpenForm}>
         Delete
       </button>
-      <Modal hidden={hidden} title="Eliminando punto de venta">
+      <Modal hidden={hidden} title="Eliminando Producto">
         <div className="w-full">
-            Desea eliminar el Punot "{punto.descripcion}"
+            Desea eliminar el Producto "{producto.descripcion}"
         </div>
         <div className="flex">
           <button
@@ -47,4 +47,4 @@ const DeletePunto: FC<Props> = ({punto}) => {
   );
 };
 
-export default DeletePunto;
+export default DeleteProducto;

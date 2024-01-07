@@ -13,7 +13,7 @@ const MenuVertical = () => {
           </a>
         </li>
         <li>
-          <a href="/dashboard/menu">
+          <a href="/dashboard/productos">
             <LuMenuSquare />
             Menu / Carta
           </a>
