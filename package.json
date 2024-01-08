@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start:socket": "node /utils/server.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -14,7 +15,9 @@
     "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^4.12.0"
+    "react-icons": "^4.12.0",
+    "socket.io": "^4.7.3",
+    "socket.io-client": "^4.7.3"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
