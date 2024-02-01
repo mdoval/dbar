@@ -1,9 +1,12 @@
 import React from "react";
+import TableroVentas from "../components/PuntosDeVenta/TableroVentas";
+import { getPuntos } from "@/utils/getPuntos";
 
-const DashboardPage = () => {
+const DashboardPage = async () => {
+  const puntos = await getPuntos()
   return (
     <div>
-      <h1>Dashboard Page</h1>
+      <TableroVentas puntos={puntos} />
     </div>
   );
 };

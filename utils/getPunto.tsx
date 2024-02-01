@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 
-export async function getProductos() {
-    const url = `${process.env.API_URL}/mobile/productos`
+export async function getPunto(puntoId: number) {
+    const url = `${process.env.API_URL}/mobile/puntos/${puntoId}`
 
     const data = await fetch(url, {
         method: "GET",
@@ -11,6 +11,6 @@ export async function getProductos() {
         cache: 'no-store'
       });
 
-    let productos = data.json()
-    return productos
+    let puntos = data.json()
+    return puntos
 }
