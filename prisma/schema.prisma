@@ -18,6 +18,7 @@ model Empresa {
   usuarios Usuario[]
   puntos Punto[]
   productos Producto[]
+  pedidos Pedido[]
 }
 
 model Usuario {
@@ -41,6 +42,7 @@ model Punto {
   empresa Empresa @relation(fields: [empresaId], references: [id])
   empresaId Int
   estado Boolean
+  pedidos Pedido[]
 }
 
 model Producto {
@@ -52,4 +54,28 @@ model Producto {
   empresaId Int
   precio Decimal
   disponible Boolean
+  pedidoItems PedidoItem[]
+}
+
+model Pedido {
+  id      Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
+  punto Punto @relation(fields: [puntoId], references: [id])
+  puntoId Int
+  empresa Empresa @relation(fields: [empresaId], references: [id])
+  empresaId Int
+  pedidoitems PedidoItem[] 
+  activo Boolean
+}
+
+model PedidoItem {
+  id      Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
+  pedido Pedido @relation(fields: [pedidoId], references: [id] )
+  pedidoId Int
+  producto Producto @relation(fields: [productoId], references: [id])
+  productoId Int
+  precio Decimal
 }
