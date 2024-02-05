@@ -1,11 +1,13 @@
 import React, { FC } from "react";
+import DescripcionPedido from "./DescripcionPedido";
 
 interface PuntoProps {
   id: number
   descripcion: string
+  pedidos: any
 }
 
-const PuntosDeVenta: FC<PuntoProps> = ({id,descripcion}) => {
+const PuntosDeVenta: FC<PuntoProps> = ({id,descripcion,pedidos}) => {
   return (
     <div className="mockup-browser border bg-base-300 w-1/4 m-2">
       <div className="mockup-browser-toolbar">
@@ -16,13 +18,11 @@ const PuntosDeVenta: FC<PuntoProps> = ({id,descripcion}) => {
       <div className="flex justify-center px-4 py-4 bg-base-200">
         <div className="w-full h-full flex">
           <div className=" w-10/12">
-            <ul>
-              <li>Gaseosa</li>
-              <li>Cerveza</li>
-              <li>Picada</li>
-            </ul>
+            {pedidos.length !== 0 ? <DescripcionPedido pedido={pedidos[0]} /> : "No hay pedidos"}
           </div>
-          <button className="btn btn-primary">Generar QR</button>
+            {pedidos.length === 0 ? <button className="btn btn-primary">Generar QR</button> : ""}
+
+          
         </div>
       </div>
     </div>

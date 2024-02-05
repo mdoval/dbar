@@ -63,6 +63,7 @@ model Pedido {
   updatedAt DateTime @updatedAt  
   punto Punto @relation(fields: [puntoId], references: [id])
   puntoId Int
+  nombre String
   empresa Empresa @relation(fields: [empresaId], references: [id])
   empresaId Int
   pedidoitems PedidoItem[] 

@@ -21,7 +21,7 @@ const MenuList: FC<MenuProps> = ({ hidden, productos }) => {
               <h2>{producto.precio}</h2>
             </div>
             <div className="text-right">
-              <ButtonPedir producto={producto.descripcion} />
+              <ButtonPedir producto={producto} />
             </div>
           </div>
         );
