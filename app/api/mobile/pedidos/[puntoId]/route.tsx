@@ -1,10 +1,21 @@
 import { NextResponse } from "next/server";
-import prisma from '@/db/prisma'
+import prisma from "@/db/prisma";
 
-export async function GET(req: Request, {params}:{params: {puntoId: string}}) {
-    const puntoId = parseInt(params.puntoId)
-    const pedido = await prisma.pedido.findFirst({ where: {puntoId: puntoId, activo:true}, include: {
-        punto: true
-    }})
-    return NextResponse.json({pedido})
+export async function GET(
+  req: Request,
+  { params }: { params: { puntoId: string } }
+) {
+  const puntoId = parseInt(params.puntoId);
+  const pedido = await prisma.pedido.findFirst({
+    where: { puntoId: puntoId, activo: true },
+    include: {
+      punto: true,
+      pedidoitems: {
+        include: {
+            producto: true
+        }
+      },
+    },
+  });
+  return NextResponse.json({ pedido });
 }

@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
 import prisma from '@/db/prisma'
 
-export async function POST(req: Request, {params}:{params: {pedidoId: number}}) {
-    console.log(req.body)
+export async function POST(req: Request, {params}:{params: {pedidoId: string}}) {
+    const { productoId, precio } = await req.json()
+    const idProducto = parseInt(productoId)
+    const idPedido = parseInt(params.pedidoId)
     try {
-        //const newPedidoItem = await prisma.pedidoItem.create({data: {pedidoId: params.pedidoId, precio: 200, productoId: 1}})
-        //return NextResponse.json(newPedidoItem)
-        return NextResponse.json({message: "hola"})
+        const newPedidoItem = await prisma.pedidoItem.create({data: {pedidoId: idPedido, precio: precio, productoId: idProducto}})
+        return NextResponse.json(newPedidoItem)
     } catch(error) {
-        //console.log(error)
+        console.log(error)
         return NextResponse.json({error: error})
     }
 }

@@ -2,26 +2,25 @@ import React, { FC } from "react";
 import ButtonPedir from "./ButtonPedir";
 
 interface MenuProps {
-  hidden: boolean;
+  nropedido: number
   productos: [];
 }
 
-const MenuList: FC<MenuProps> = ({ hidden, productos }) => {
+const MenuList: FC<MenuProps> = ({  productos, nropedido }) => {
   return (
-    <div hidden={hidden}>
-      <h1>Menu</h1>
-      <hr />
+    <div>
+      <span className="text-2xl font-bold">Menu</span>
       {productos.map((producto: {id:number, descripcion: string, precio: number}) => {
         return (
           <div key={producto.id} className="m-2 space-y-2 p-3 shadow-md">
             <div>
-              <h1>{producto.descripcion}</h1>
+              <span className="text-2xl font-bold">{producto.descripcion}</span>
             </div>
             <div>
-              <h2>{producto.precio}</h2>
+              <span className="font-bold text-gray-600">$ {producto.precio}</span>
             </div>
             <div className="text-right">
-              <ButtonPedir producto={producto} />
+              <ButtonPedir producto={producto} nropedido={nropedido} />
             </div>
           </div>
         );

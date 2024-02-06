@@ -12,8 +12,10 @@ const LoginForm = () => {
   const [errorEmail, setErrorEmail] = useState<string>("");
   const [errorPassword, setErrorPassword] = useState<string>("");
   const [errorLogin, setErrorLogin] = useState<string>("");
+  const [hiddenSpinner, setHiddenSpinner] = useState<boolean>(true)
 
   const handleClickLogin = async () => {
+    setHiddenSpinner(false)
     if (!email) setErrorEmail("Debe colocar un Email");
     else setErrorEmail("");
     if (!password) setErrorPassword("Debe colocar una Contraseña");
@@ -31,7 +33,8 @@ const LoginForm = () => {
 //        console.log(`res : ${JSON.stringify(res)}`)
 
         if (!res?.ok) {
-          setErrorLogin("Credenciales Invalidas");
+          setErrorLogin("Credenciales Invalidas"); 
+          setHiddenSpinner(true)        
           return;
         } else {
           router.replace("/dashboard")
@@ -98,14 +101,15 @@ const LoginForm = () => {
       </div>
       <div className="w-full text-center">
         <button className="btn btn-primary w-1/3" onClick={handleClickLogin}>
-          Ingresar
+          <span>Ingresar</span>
+          <div hidden={hiddenSpinner}><span className="loading loading-spinner loading-xs"></span></div>
         </button>
       </div>
 
       <div className="w-full text-right m-4 p-2">
         <span>Aun no tiene cuenta ? </span>
         <Link href={"/registro"} className="text-blue-500">
-          Registrese
+          Registrese          
         </Link>
       </div>
     </div>
