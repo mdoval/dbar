@@ -1,5 +1,5 @@
 export async function deletePunto(id: number) {
-    const url = `http://localhost:3000/api/puntos/${id}`
+    const url = `${process.env.API_URL}/api/puntos/${id}`
 
     const newPunto = await fetch(url, {
         method: "DELETE",

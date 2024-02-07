@@ -1,5 +1,5 @@
 export const registrarUsuario = async (usuario: IUsuario | undefined) => {
-  const url = `http://localhost:3000/api/usuarios/registro`;
+  const url = `${process.env.API_URL}/usuarios/registro`;
   try {
     const res = await fetch(url, {
       method: "POST",

@@ -1,5 +1,5 @@
 export const passwordChange = async (usuario: IUsuario | undefined) => {
-    const url = `http://localhost:3000/api/usuarios/passwordchange`;
+    const url = `${process.env.API_URL}/usuarios/passwordchange`;
     try {
       const res = await fetch(url, {
         method: "PUT",

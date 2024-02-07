@@ -1,5 +1,5 @@
 export async function updateProducto(id: number, descripcion: string, precio: number, disponible: boolean) {
-    const url = `http://localhost:3000/api/productos/${id}`
+    const url = `${process.env.API_URL}/productos/${id}`
 
     const newProducto = await fetch(url, {
         method: "PUT",

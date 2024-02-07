@@ -1,8 +1,5 @@
 export async function addPedidoItem(pedidoId: number, productoId: number, precio: number) {    
-    const url = `http://localhost:3000/api/mobile/pedidos/addproducto/${pedidoId}`
-    //console.log(pedidoId)
-    //console.log(productoId)
-    //console.log(url)
+    const url = `${process.env.API_URL}/mobile/pedidos/addproducto/${pedidoId}`
     const newPedido = await fetch(url, {
         method: "POST",
         headers: {

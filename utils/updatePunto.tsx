@@ -1,5 +1,5 @@
 export async function updatePunto(id: number, descripcion: string) {
-    const url = `http://localhost:3000/api/puntos/${id}`
+    const url = `${process.env.API_URL}/puntos/${id}`
 
     const newPunto = await fetch(url, {
         method: "PUT",

@@ -22,7 +22,7 @@ export const authOptions = {
             
             //console.log(credentials)
         
-            const res = await fetch("http://localhost:3000/api/usuarios/login", {
+            const res = await fetch(`${process.env.API_URL}/usuarios/login`, {
               method: 'POST',
               body: JSON.stringify(credentials),
               headers: { "Content-Type": "application/json" }

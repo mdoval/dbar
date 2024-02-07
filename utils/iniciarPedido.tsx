@@ -1,5 +1,5 @@
 export async function iniciarPedido(puntoId: number, nombre: string) {    
-    const url = `http://localhost:3000/api/mobile/pedidos/init/${puntoId}`
+    const url = `${process.env.API_URL}/mobile/pedidos/init/${puntoId}`
     const newPedido = await fetch(url, {
         method: "POST",
         headers: {
