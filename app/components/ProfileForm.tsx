@@ -136,7 +136,7 @@ const ProfileForm: FC<Props> = ({ user }) => {
           Guardar
         </button>
       </div>
-      <Modal hidden={hiddenPassword}>
+      <Modal hidden={hiddenPassword} title="Cambio de Password">
         <div className="flex flex-col">
           <div>
             <label className="form-control w-full max-w-xs">
@@ -189,7 +189,7 @@ const ProfileForm: FC<Props> = ({ user }) => {
           </div>
         </div>
       </Modal>
-      <Modal hidden={hiddenFoto}>
+      <Modal hidden={hiddenFoto} title="Subir Imagen">
         <form onSubmit={handleSubirFoto}>
           <input
             type="file"

@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 
 interface ModalProps {
   children: ReactNode
-  hidden: boolean
+  hidden: boolean   
   title: string
 }
 
