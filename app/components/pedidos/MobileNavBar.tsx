@@ -6,21 +6,26 @@ import { MdRestaurantMenu } from "react-icons/md";
 import { IoHomeOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 
-const MobileNavBar: FC = ({ }) => {
+interface MobileNavProps {
+  puntoId: number
+}
+
+
+const MobileNavBar: FC<MobileNavProps> = ({ puntoId }) => {
   const router = useRouter()
 
   const goHome = () => {
-    router.push("/pedidos/home/1")    
+    router.push(`/pedidos/home/${puntoId}`)    
     router.refresh()
   }
 
   const goPedido = () => {
-    router.push("/pedidos/pedido/1")    
+    router.push(`/pedidos/pedido/${puntoId}`)    
     router.refresh()
   }
 
   const goMenu = () => {
-    router.push("/pedidos/menu/1")    
+    router.push(`/pedidos/menu/${puntoId}`)    
     router.refresh()
   }
 

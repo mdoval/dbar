@@ -1,13 +1,16 @@
 import React, { FC } from "react";
 import DescripcionPedido from "./DescripcionPedido";
+import { getPedido } from "@/utils/getPedido";
 
 interface PuntoProps {
   id: number
   descripcion: string
-  pedidos: any
-}
+}  
 
-const PuntosDeVenta: FC<PuntoProps> = ({id,descripcion,pedidos}) => {
+const PuntosDeVenta: FC<PuntoProps> = async ({id,descripcion}) => {
+  const pedido = await getPedido(id)
+//  console.log(pedido)
+
   return (
     <div className="mockup-browser border bg-base-300 w-1/4 m-2">
       <div className="mockup-browser-toolbar">
@@ -18,11 +21,9 @@ const PuntosDeVenta: FC<PuntoProps> = ({id,descripcion,pedidos}) => {
       <div className="flex justify-center px-4 py-4 bg-base-200">
         <div className="w-full h-full flex">
           <div className=" w-10/12">
-            {pedidos.length !== 0 ? <DescripcionPedido pedido={pedidos[0]} /> : "No hay pedidos"}
+            {pedido.pedido === null ?  "NO hay peiddos" : <DescripcionPedido pedido={pedido} />}
           </div>
-            {pedidos.length === 0 ? <button className="btn btn-primary">Generar QR</button> : ""}
-
-          
+            {pedido.pedido === null ? <button className="btn btn-primary">Generar QR</button> : ""}          
         </div>
       </div>
     </div>
@@ -30,3 +31,5 @@ const PuntosDeVenta: FC<PuntoProps> = ({id,descripcion,pedidos}) => {
 };
 
 export default PuntosDeVenta;
+
+//<DescripcionPedido pedido={pedido} />

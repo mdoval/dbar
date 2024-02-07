@@ -79,4 +79,11 @@ model PedidoItem {
   producto Producto @relation(fields: [productoId], references: [id])
   productoId Int
   precio Decimal
+  estado EstadoPedidoItem
+}
+
+enum EstadoPedidoItem {
+  solicitado
+  en_preparacion
+  entregado
 }

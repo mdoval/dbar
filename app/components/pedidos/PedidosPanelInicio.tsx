@@ -2,6 +2,7 @@
 
 import { iniciarPedido } from "@/utils/iniciarPedido";
 import { Punto } from "@prisma/client";
+import { useRouter } from "next/navigation";
 import React, { FC, useState } from "react";
 
 interface PedidosProps {
@@ -10,9 +11,11 @@ interface PedidosProps {
 
 const PedidosPanelInicio: FC<PedidosProps> = ({ punto }) => {
   const [nombre, setNombre] = useState<string>("");
+  const router = useRouter()
 
   const handleActivarPedido = async () => {
     await iniciarPedido(punto.id, nombre);
+    router.push(`/pedidos/home/${punto.id}`)
   };
 
   return (

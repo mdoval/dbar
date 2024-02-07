@@ -12,7 +12,7 @@ const TableroVentas: FC<TableroProps> = ({puntos}) => {
       <hr />
       <div className="flex flex-wrap">
         {puntos.map((punto: {id: number, descripcion: string, pedidos: any}) => {
-          return <PuntosDeVenta key={punto.id} id={punto.id} descripcion={punto.descripcion} pedidos={punto.pedidos} />
+          return <PuntosDeVenta key={punto.id} id={punto.id} descripcion={punto.descripcion} />
         })}        
       </div>
     </div>

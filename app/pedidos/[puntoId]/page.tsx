@@ -1,7 +1,6 @@
 import { getPedido } from "@/utils/getPedido";
 import { getProductos } from "@/utils/getProductos";
-import { getPunto } from "@/utils/getPunto";
-import React, { FC, useState } from "react";
+import  { FC } from "react";
 import { redirect } from 'next/navigation'
 
 interface PedidosProps {
