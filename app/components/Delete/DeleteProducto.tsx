@@ -31,7 +31,7 @@ const DeleteProducto: FC<Props> = ({producto}) => {
       </button>
       <Modal hidden={hidden} title="Eliminando Producto">
         <div className="w-full">
-            Desea eliminar el Producto "{producto.descripcion}"
+            Desea eliminar el Producto {producto.descripcion}
         </div>
         <div className="flex">
           <button

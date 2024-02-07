@@ -6,7 +6,7 @@ import React, { FC, useState } from "react";
 import Modal from "./Modal";
 import passwordChange from "@/utils/passwordChange";
 import uploadPhoto from "@/utils/uploadPhoto";
-import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 interface Props {
   user: any;
@@ -80,7 +80,7 @@ const ProfileForm: FC<Props> = ({ user }) => {
       <br />
       <div className="avatar m-auto flex flex-col">
         <div className="w-24 rounded-full">
-          <img src={user.avatar} />
+          <Image alt="Avatar" src={user.avatar} />
         </div>
         <button className="text-blue-600" onClick={() => setHiddenFoto(false)}>Cambiar Foto</button>
       </div>

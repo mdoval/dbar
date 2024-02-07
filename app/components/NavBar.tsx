@@ -1,6 +1,7 @@
 "use client";
 
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 import React, { FC } from "react";
 import { BiSolidDrink } from "react-icons/bi";
 
@@ -56,7 +57,7 @@ const NavBar: FC<any> = ({ usuario }) => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img alt="Tailwind CSS Navbar component" src={usuario.avatar} />
+              <Image alt="Avatar" src={usuario.avatar}  />
             </div>
           </div>
           <ul

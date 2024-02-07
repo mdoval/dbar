@@ -31,7 +31,7 @@ const DeletePunto: FC<Props> = ({punto}) => {
       </button>
       <Modal hidden={hidden} title="Eliminando punto de venta">
         <div className="w-full">
-            Desea eliminar el Punot "{punto.descripcion}"
+            Desea eliminar el Punot {punto.descripcion}
         </div>
         <div className="flex">
           <button

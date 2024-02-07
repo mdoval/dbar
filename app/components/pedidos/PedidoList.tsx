@@ -10,7 +10,7 @@ const PedidoList: FC<PedidosProps> = ({ pedidoitems }) => {
       <span className="text-2xl font-bold">Pedido</span>
       {pedidoitems.map((pedido: { id: number, producto: any, precio: number }) => {
         return (
-          <div className="flex space-x-8 w-full">
+          <div key={pedido.id} className="flex space-x-8 w-full">
             <span>{pedido.id}</span>
             <span>{pedido.producto.descripcion}</span>
             <span>$ {pedido.precio}</span>
