@@ -1,5 +1,6 @@
 export async function addPedidoItem(pedidoId: number, productoId: number, precio: number) {    
     const url = `${process.env.API_URL}/mobile/pedidos/addproducto/${pedidoId}`
+    console.log(url)
     const newPedido = await fetch(url, {
         method: "POST",
         headers: {
